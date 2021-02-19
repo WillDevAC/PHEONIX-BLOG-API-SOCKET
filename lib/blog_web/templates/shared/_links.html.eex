@@ -1,0 +1,11 @@
+  <%= if @conn.assigns[:user] do %>
+  <li><a href="#">Bem vindo!! <%= @conn.assigns[:user].email %> </a></li>
+  <li>
+    <%= link "Posts", to: Routes.post_path(@conn, :index) %>
+  </li>
+  <li>
+    <%= link "Logout", to: Routes.auth_path(@conn, :logout) %>
+  </li>
+  <% else %>
+  <li><%= link "Logar", to: Routes.auth_path(@conn, :request, "google") %></li>
+  <% end %>
